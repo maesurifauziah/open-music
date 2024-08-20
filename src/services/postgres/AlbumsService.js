@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 const { nanoid } = require('nanoid');
 const InvariantError = require('../../exceptions/InvariantError');
-const { mapDBToModel } = require('../../utils');
+const { mapDBToModel } = require('../../utils/albums');
 const NotFoundError = require('../../exceptions/NotFoundError');
 
 class AlbumsService {
@@ -19,7 +19,7 @@ class AlbumsService {
       values: [id, name, year, createdAt, updatedAt],
     };
 
-    const result = this._pool.query(query);
+    const result = await this._pool.query(query);
 
     if (!result.rows.length) {
       throw new InvariantError('Album gagal ditambahkan');
