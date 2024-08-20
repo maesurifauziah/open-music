@@ -30,7 +30,7 @@ class AlbumsHandler {
     return {
       status: 'success',
       data: {
-        albums,
+        album,
       },
     };
   }

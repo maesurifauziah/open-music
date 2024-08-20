@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const ClientError = require('../../exceptions/ClientError');
 const autoBind = require('auto-bind');
 
@@ -11,8 +12,10 @@ class SongsHandler {
 
   async postSongHandler(request, h) {
     this._validator.validateSongPayload(request.payload);
-    const { title = 'untitled', year, genre, performer, duration,albumId } = request.payload;
-    const songId = await this._service.addSong({ title, year, genre, performer, duration,albumId });
+    
+    const { title = 'untitled', year, genre, performer, duration, albumId } = request.payload;
+    
+    const songId = await this._service.addSong({ title, year, genre, performer, duration, albumId });
     const response = h.response({
       status: 'success',
       message: 'Lagu berhasil ditambahkan',
@@ -40,7 +43,7 @@ class SongsHandler {
     return {
       status: 'success',
       data: {
-        songs,
+        song,
       },
     };
   }

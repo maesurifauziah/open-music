@@ -16,7 +16,7 @@ const init = async () => {
     port: process.env.PORT,
     host: process.env.HOST,
     debug: {
-      request: ['error',]
+      request: ['error'],
     },
     routes: {
       cors: {
